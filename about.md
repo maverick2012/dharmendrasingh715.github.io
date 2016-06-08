@@ -4,9 +4,11 @@ title: About
 permalink: /about/
 ---
 
-I'm a developer with a Bangalore based social media automation start-up, a husband, an avid gamer, and lover of movies. I enjoy coming up with solutions for complex problems, creating automated solutions, and delivering JSON wherever I can.
+My name is Dharmendra Singh. I'm a full stack developer with a Bangalore based social media automation start-up [Around.io](http://around.io), a husband, an avid gamer, and lover of movies. I enjoy coming up with solutions for complex problems, creating automated solutions, and delivering JSON wherever I can.
 
 I love to get my hands dirty with javascript to make cool and awesome applications.
+
+I also enjoy writing backend applications in PHP, designing API solutions and have working knowledge of Phalcon PHP framework.   
 
 ### Contact me
 
