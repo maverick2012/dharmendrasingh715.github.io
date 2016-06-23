@@ -102,6 +102,13 @@ ul.tag_list_in_post {
     padding-bottom: 0;
 }
 
+ul.tag_list_in_post {
+    border-left: 1px solid #bbb;
+    display: inline;
+    margin-left: 15px;
+    padding: 0 0 0 10px;
+}
+
 li.tag_list_item {
     line-height: 1;
     list-style: none;
