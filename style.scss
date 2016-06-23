@@ -98,6 +98,34 @@ ul ul, ol ul {
   list-style-type: circle;
 }
 
+ul.tag_list_in_post {
+    padding-bottom: 0;
+}
+
+li.tag_list_item {
+    line-height: 1;
+    list-style: none;
+    margin: 0;
+}
+
+li.inline {
+    display: inline;
+}
+
+a.tag_list_link:first-child {
+    border: 0;
+}
+
+a.tag_list_link {
+    border-left: 1px solid #ccc;
+    color: #888;
+    font-size: 14px;
+    font-variant: small-caps;
+    margin: 0;
+    padding: 0 6px;
+    text-transform: lowercase;
+}
+
 em, i {
   font-style: italic;
 }
