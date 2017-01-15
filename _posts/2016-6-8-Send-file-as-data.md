@@ -9,7 +9,9 @@ Recently I was working on a project where I needed to upload a file in a single 
 
 There is also option of uploading files directly with ajax but the backend guy asked me if I can send files in _Base64_ format. 
 
-I knew I can convert image into _Base64_ by loading it in canvas this way.
+I knew I can convert image into _Base64_ by loading it in _canvas_ this way.
+
+Read more on [_canvas_ .](https://developer.mozilla.org/en/docs/Web/API/FileReader)
  
 {% highlight javascript %}
 
@@ -45,4 +47,58 @@ I knew I can convert image into _Base64_ by loading it in canvas this way.
     };
     img.src = src;
     
-{% endhighlight %} 	
+ {% endhighlight %} 	
+
+Finally decided to convert the code into a generic function that can be invoked any time to do the conversion for us.
+
+ {% highlight javascript %}
+ 
+    function toDataUrl(src, callback) {
+ 	    var img = new Image();
+ 	    img.crossOrigin = 'Anonymous';
+ 	    img.onload = function() {
+ 		    var canvas = document.createElement('CANVAS');
+ 		    var ctx = canvas.getContext('2d');
+ 		    var dataURL;
+ 		    canvas.height = this.height;
+ 		    canvas.width = this.width;
+ 		    ctx.drawImage(this, 0, 0);
+ 		    dataURL = canvas.toDataURL();
+ 		    callback(dataURL);
+ 	    };
+ 	    
+ 	    img.src = 'crop.png';
+ 	    if (img.complete || img.complete === undefined) {
+ 		    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+ 		    img.src = src;
+ 	    }
+    }
+        
+ {% endhighlight %} 	
+
+We can use this function this way.
+
+ {% highlight javascript %}
+ 
+    toDataUrl('crop.png', function(base64Img) {
+ 	    console.log(base64Img);
+    });
+    
+ {% endhighlight %}
+ 	
+Also I added a check in function to make sure the load event fires for cached images too.
+
+ {% highlight javascript %}
+ 
+    if (img.complete || img.complete === undefined) {
+        img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+        img.src = src;
+    }
+    
+ {% endhighlight %}
+ 
+Later I found out that we can also use _FileReader_ API to read the file and convert into the _Base64_ format.
+
+Read more on [_FileReader_ API.](https://developer.mozilla.org/en/docs/Web/API/FileReader)
+    
+We can then send the image we converted in any ajax request.      
