@@ -7,3 +7,10 @@ Recently I was working on a project where I needed to upload a file in a single 
 
 ![_config.yml]({{ site.baseurl }}/images/whatif.jpg)
 
+
+#### testing code hightlight
+{% highlight ruby %}  
+def foo  
+  puts 'foo'  
+end  
+{% endhighlight %}
