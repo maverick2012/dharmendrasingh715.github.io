@@ -30,7 +30,7 @@ I knew I can convert image into _Base64_ by loading it in canvas this way.
  
  The changed code.
  
- {% endhighlight %}
+ {% highlight javascript %}
  
     var img = new Image();
     img.onload = function() {
