@@ -13,8 +13,7 @@ I knew I can convert image into _Base64_ by loading it in _canvas_ this way.
 
 Read more on [_canvas_ .](https://developer.mozilla.org/en/docs/Web/API/FileReader)
  
-{% highlight javascript %}
-
+ {% highlight javascript %}
     var img = new Image();
     img.src = src; //image to be converted
     var canvas = document.createElement('CANVAS');
@@ -25,15 +24,13 @@ Read more on [_canvas_ .](https://developer.mozilla.org/en/docs/Web/API/FileRead
     ctx.drawImage(img, 0, 0);
     dataURL = canvas.toDataURL();
     console.log(dataUrl); //log Base64 image string
-    
-{% endhighlight %} 
+ {% endhighlight %} 
 
  But the issue here is that image takes some time to load, resulting in the wrong Base64 string. Fortunately, we have an event for image load completion which we can use to ensure that our image has completely loaded before we draw it into _canvas_.
  
  The changed code.
  
  {% highlight javascript %}
- 
     var img = new Image();
     img.onload = function() {
         var canvas = document.createElement('CANVAS');
@@ -46,13 +43,11 @@ Read more on [_canvas_ .](https://developer.mozilla.org/en/docs/Web/API/FileRead
         console.log(dataURL);
     };
     img.src = src;
-    
  {% endhighlight %} 	
 
 Finally decided to convert the code into a generic function that can be invoked any time to do the conversion for us.
 
  {% highlight javascript %}
- 
     function toDataUrl(src, callback) {
  	    var img = new Image();
  	    img.crossOrigin = 'Anonymous';
@@ -72,29 +67,24 @@ Finally decided to convert the code into a generic function that can be invoked 
  		    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
  		    img.src = src;
  	    }
-    }
-        
+    } 
  {% endhighlight %} 	
 
-We can use this function this way.
+We can use it this way.
 
  {% highlight javascript %}
- 
     toDataUrl('crop.png', function(base64Img) {
  	    console.log(base64Img);
     });
-    
  {% endhighlight %}
  	
 Also I added a check in function to make sure the load event fires for cached images too.
 
  {% highlight javascript %}
- 
     if (img.complete || img.complete === undefined) {
         img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
         img.src = src;
     }
-    
  {% endhighlight %}
  
 Later I found out that we can also use _FileReader_ API to read the file and convert into the _Base64_ format.
