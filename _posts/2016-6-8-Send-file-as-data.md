@@ -62,7 +62,7 @@ Finally decided to convert the code into a generic function that can be invoked 
  		    callback(dataURL);
  	    };
  	    
- 	    img.src = 'crop.png';
+ 	    img.src = src;
  	    if (img.complete || img.complete === undefined) {
  		    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
  		    img.src = src;
@@ -73,7 +73,7 @@ Finally decided to convert the code into a generic function that can be invoked 
 We can use it this way.
 
  {% highlight javascript %}
-    toDataUrl('crop.png', function(base64Img) {
+    toDataUrl('image/url', function(base64Img) {
  	    console.log(base64Img);
     });
  {% endhighlight %}
