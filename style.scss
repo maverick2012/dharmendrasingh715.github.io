@@ -273,9 +273,46 @@ nav {
   }
 }
 
-//
-// .main
-//
+ul.tags {
+  overflow: auto;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+ul.tags > li {
+  height: 25px;
+  float: left;
+  margin-right: 0px;
+  border-right: 1px solid #aaa;
+  padding: 0 10px;
+}
+
+ul.tags > li:last-child {
+  border-right: none;
+}
+
+ul.tags > li a {
+  text-decoration: none;
+  color: #aaa;
+  font: 15px/1 Helvetica, Verdana, sans-serif;
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+ul.tags > li a:hover {
+  color: #666;
+}
+
+ul.tags > li.active a {
+  font-weight: bold;
+  color: #333;
+}
 
 .posts > .post {
   padding-bottom: 2em;
