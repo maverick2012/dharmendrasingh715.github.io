@@ -1,13 +1,14 @@
 ---
 layout: post
 title: It's up and running!
+tags: jekyll blogging javascript
 ---
 
 I have been thinking to write a blog for quite some time now but being a big time procrastinator just couldn't do it.
 
 Maybe because  it was too much work for my lazy ass. I didn't want to use a cms and creating my own blogging system was too much effort. Neverthless I did code my blog in Parse, which of course remained unpublished.
 
-This meme totally sums up my situation. 
+This meme totally sums up my situation.
 
 ![_config.yml]({{ site.baseurl }}/images/always.jpg)
 
