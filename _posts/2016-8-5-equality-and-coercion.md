@@ -6,7 +6,7 @@ tags: JavaScript coercion type conversion variables
 
 Comparing values in js falls in two type equality and inequality. Regardless of the type of values, we are comparing result is always strictly _boolean_.
 
-######Coercion
+######Little information about coercion
 
 Coercion is basically converting a value type to another value type. A simple example of this would be.
 
