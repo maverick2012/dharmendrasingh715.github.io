@@ -9,8 +9,8 @@ My name is Dharmendra Singh. I'm a full stack developer with a Bangalore based s
 ### Tech
 
 I love to get my hands dirty with javascript to make cool and awesome applications.
-
 I also enjoy writing backend applications in PHP, designing API solutions and have working knowledge of Phalcon PHP framework.
+
 
 ### Contact me
 
