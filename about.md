@@ -2,7 +2,6 @@
 layout: page
 title: About
 permalink: /about/
-tags: jekyll blogging javascript about
 ---
 
 My name is Dharmendra Singh. I'm a full stack developer, a husband, an avid gamer and a movie buff. I enjoy coming up with solutions for complex problems, creating automated solutions, and delivering and consuming JSON wherever I can.
