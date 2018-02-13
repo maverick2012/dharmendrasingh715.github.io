@@ -13,7 +13,6 @@ In JavaScript, there are 6 types of primitive data types: string, number, boolea
 Comparing values in JavaScript falls in two categories equality and inequality. Regardless of the type of values, we are comparing, the result is always strictly _boolean_.
 
 
-
 ###### Little information about coercion
 
 Coercion is basically converting a value type to another value type. A simple example of this would be.
@@ -32,3 +31,15 @@ There are two types of coercion in JavaScript _implicit_ and _explicit_. Explici
 
 There is a general misconception about **coercion** that sometimes it can produce some surprising results, fortunately, that is not true.
 If we try to understand the underlying behaviour of the concept it will never surprise us.  
+
+> It may not be obvious but JavaScript coercion always result in scalar primitive values like _string_, _number_, or _boolean_. it will never result in complex value like _object_  or _function_.
+
+Let's take a very classical example.
+
+{% highlight javascript%}
+    console.log(return 42 == '42');
+{% endhighlight %} 
+
+So, what do you think will will be logged in console?
+
+Let's analyze the above code, what were are trying to do is comparing a number to string, and since 
