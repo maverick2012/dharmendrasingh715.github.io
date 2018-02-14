@@ -34,7 +34,7 @@ If we try to understand the underlying behaviour of the concept it will never su
 
 > It may not be obvious but JavaScript coercion always result in scalar primitive values like _string_, _number_, or _boolean_. it will never result in complex value like _object_  or _function_.
 
-Let's take a very classical example.
+Let's take an example.
 
 {% highlight javascript%}
     console.log(return 42 + '');
@@ -43,3 +43,5 @@ Let's take a very classical example.
 So, what do you think will will be logged in console?
 
 Let's analyze the above code. What we are trying to do here is add a number to an empty string. The **+** operator will try to add the number with the empty string, however, the empty string is not a number so it will insist on concatenation (adding two strings) which as _(hidden) side effect_ will convert _number 42_ to its _string_ equivalent _"42"_. So, the console will log _"42"_ as a result.
+
+ We can get the similar result by explicitly converting a number to a string using _string(....)_ function. The terms _implicit_, _explicit_ and _hidden effects_ are relative because if we know what **42 + ""** is doing, and we are intensionaly doing it, then this operation is suffeciently explicit for us. 
