@@ -37,9 +37,9 @@ If we try to understand the underlying behaviour of the concept it will never su
 Let's take a very classical example.
 
 {% highlight javascript%}
-    console.log(return 42 == '42');
+    console.log(return 42 + '');
 {% endhighlight %} 
 
 So, what do you think will will be logged in console?
 
-Let's analyze the above code, what were are trying to do is comparing a number to string, and since 
+Let's analyze the above code. What we are trying to do here is add a number to an empty string. The **+** operator will try to add the number with the empty string, however, the empty string is not a number so it will insist on concatenation (adding two strings) which as _(hidden) side effect_ will convert _number 42_ to its _string_ equivalent _"42"_. So, the console will log _"42"_ as a result.
