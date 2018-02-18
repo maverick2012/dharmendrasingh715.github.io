@@ -89,6 +89,68 @@ Let's take an example:
 
 In the first comparison JS notices that the types do not match, so it goes through an ordered series of steps to coerce one or both values to a different type until the types match, where then a simple value equality can be checked. In the second case since coercion is not allowed so value conversion fails and results in false.
 
+There are some edge cases in use of == which we need to remember otherwise == is a very powerful tool which helps us write code.
+
+* If  either value in comparison can be a boolean value avoid == use === instead.
+* If either value in comparison can be one of these values: 0,"", or [] (empty array), avoid using == use === instead.
+* In all other case we are safe to use == .
+
+> In case of comparing non-primitive values _objects_ and _arrays_, rules may defer for == and === because these values are actually held by reference so these operators only check if the reference matches, not anything about the underlying values.
+
+For example, _arrays_ are by default coerced to _strings_ by simply joining all the values with commas ( , ) in between. You might think that two _arrays_ with the same  contents would be == equal, but they're not:
+
+{% highlight javascript%}
+    var a = [1,2,3];
+    var b = [1,2,3];
+    var c = "1,2,3";
+    
+    console.log(a == c); // true
+    console.log(b == c); // true
+    console.log(a == b); // false
+
+{% endhighlight %}
+
+###### Inequality
+
+The < , > , <= , and >= operators are used for inequality, also known as "relational comparison." Typically they will be used with ordinally comparable values like
+_numbers_. It's easy to understand that 3 < 4 . But JavaScript _string_ values can also be compared for inequality, using typical alphabetic rules ( "bar" < "foo" ).
+
+What about coercion? Similar rules as == comparison (though not exactly identical!) apply to the inequality operators. Notably, there are no "strict inequality" operators that would disallow coercion the same way === "strict equality" does.
+
+Consider:
+
+{% highlight javascript%}
+    var a = 41;
+    var b = "42";
+    var c = "43";
+
+    console.log(a < b); // true
+    console.log(b < c); // true
+
+{% endhighlight %}
+
+What happens here? If both values in the < comparison are _strings_, as it is with b < c, the comparison is made alphabetically like a dictionary. But if one or both is not a _string_ , as it is with a < b , then both values are coerced to be _numbers_, and a typical numeric comparison occurs.
+
+The biggest gotcha we may run into here with comparisons between potentially different value types, since there are no "strict inequality" forms to use, it is when one of the values cannot be made into a valid number, such as:
+
+{% highlight javascript%}
+    var a = 42;
+    var b = "foo";
+
+    console.log(a < b); // false
+    console.log(a > b); // false
+    console.log(a == b); // false
+
+{% endhighlight %}
+
+How can all three of those comparisons be false ? Because the b value is being coerced to the "invalid number value" NaN in the < and > comparisons, and NaN is neither greater-than nor less-than any other value.
+
+The == comparison fails for a different reason. a == b could fail if it's interpreted either as 42 == NaN or "42" == "foo", as we explained earlier, the former is the case.
 
 
+##### Summary:
 
+This is just a short overview of coercion and comparison (equality and inequality) in JavaScript. for more information read [here|https://developer.mozilla.org/bm/docs/Web/JavaScript/Equality_comparisons_and_sameness] and [here|https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch4.md]
+
+
+This blog article is based on material in book "You don't know js" by [@YDKJS|https://twitter.com/@YDKJS], used under [CC BY|http://creativecommons.org/licenses/by-nc-nd/4.0/].
