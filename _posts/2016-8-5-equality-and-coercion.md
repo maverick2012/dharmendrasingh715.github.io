@@ -153,4 +153,5 @@ The == comparison fails for a different reason. a == b could fail if it's interp
 This is just a short overview of coercion and comparison (equality and inequality) in JavaScript. for more information read [here|https://developer.mozilla.org/bm/docs/Web/JavaScript/Equality_comparisons_and_sameness] and [here|https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch4.md]
 
 
+
 This blog article is based on material in book "You don't know js" by [@YDKJS|https://twitter.com/@YDKJS], used under [CC BY|http://creativecommons.org/licenses/by-nc-nd/4.0/].
