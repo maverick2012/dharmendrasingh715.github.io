@@ -72,5 +72,7 @@ Any value which is not _falsy_ is _truthy_. Here are some examples of those:
 
 ##### Equality
 
-There are four operators to check equality between values, ==, != , ===, and !== . The **!** are symmatric _not equal_ version of their  counterparts. _Non equality_ should not be counfused with _inequality_.
+There are four operators to check equality between values, ==, != , ===, and !== . The **!** are symmatric "_not equal_" version of their  counterparts. _Non equality_ should not be counfused with _inequality_.
+
+The main difference between == and === is understood as that == check for value equality, and === checks for value and type equality. However correct way to characterize them is that == checks for values equality with coercion allowed and === checks for value equality with coercion not allowed so it is often called  _"strict equality"_. 
 
