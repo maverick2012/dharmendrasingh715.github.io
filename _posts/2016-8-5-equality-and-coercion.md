@@ -13,7 +13,7 @@ In JavaScript, there are 6 types of primitive data types: string, number, boolea
 Comparing values in JavaScript falls in two categories equality and inequality. Regardless of the type of values, we are comparing, the result is always strictly _boolean_.
 
 
-###### Little information about coercion
+##### Little information about coercion
 
 Coercion is basically converting a value type to another value type. A simple example of this would be.
 
@@ -44,4 +44,33 @@ So, what do you think will will be logged in console?
 
 Let's analyze the above code. What we are trying to do here is add a number to an empty string. The **+** operator will try to add the number with the empty string, however, the empty string is not a number so it will insist on concatenation (adding two strings) which as _(hidden) side effect_ will convert _number 42_ to its _string_ equivalent _"42"_. So, the console will log _"42"_ as a result.
 
- We can get the similar result by explicitly converting a number to a string using _string(....)_ function. The terms _implicit_, _explicit_ and _hidden effects_ are relative because if we know what **42 + ""** is doing, and we are intensionaly doing it, then this operation is suffeciently explicit for us. 
+We can get the similar result by explicitly converting a number to a string using _string(....)_ function. The terms _implicit_, _explicit_ and _hidden effects_ are relative because if we know what **42 + ""** is doing, and we are intentionally doing it, then this operation is sufficiently explicit for us. 
+
+
+##### Truthy and Falsy
+
+When a _non-boolean_ value is coerced to _boolean_, It will always result in either _true_ or _false_, so depending on the result we can say the value has _truthy_ nature if the result is true and _falsy_ when the result is false. Here is list of all values which have either _truthy_ or _falsy_ nature.
+
+###### Falsy values
+
+1. "" (Empty string)
+2. 0,-0, NaN (Invalid number)
+3. null, undefined
+4. false
+
+###### Truthy values
+
+Any value which is not _falsy_ is _truthy_. Here are some examples of those:
+
+* "Hello"
+* 42
+* true
+* [], [1,2,3] (arrays)
+* {}, {a:2,b:3} (objects)
+* function foo() {..} (functions)
+
+
+##### Equality
+
+There are four operators to check equality between values, ==, != , ===, and !== . The **!** are symmatric _not equal_ version of their  counterparts. _Non equality_ should not be counfused with _inequality_.
+
