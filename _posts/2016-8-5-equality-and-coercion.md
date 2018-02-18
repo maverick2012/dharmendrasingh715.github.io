@@ -154,4 +154,4 @@ This is just a short overview of coercion and comparison (equality and inequalit
 
 
 
-This blog article is based on material in book "You don't know js" by [@YDKJS|https://twitter.com/@YDKJS], used under [CC BY](http://creativecommons.org/licenses/by-nc-nd/4.0/).
+This blog article is based on material in book "You don't know js" by [@YDKJS](https://twitter.com/@YDKJS), used under [CC BY](http://creativecommons.org/licenses/by-nc-nd/4.0/).
