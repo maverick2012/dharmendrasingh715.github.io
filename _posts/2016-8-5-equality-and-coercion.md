@@ -74,5 +74,21 @@ Any value which is not _falsy_ is _truthy_. Here are some examples of those:
 
 There are four operators to check equality between values, ==, != , ===, and !== . The **!** are symmatric "_not equal_" version of their  counterparts. _Non equality_ should not be counfused with _inequality_.
 
-The main difference between == and === is understood as that == check for value equality, and === checks for value and type equality. However correct way to characterize them is that == checks for values equality with coercion allowed and === checks for value equality with coercion not allowed so it is often called  _"strict equality"_. 
+The main difference between == and === is understood as that == check for value equality, and === checks for value and type equality. However correct way to characterize them is that == checks for values equality with coercion allowed and === checks for value equality with coercion not allowed so it is often called  _"strict equality"_.
+
+Let's take an example:
+
+{% highlight javascript%}
+    var a = "42";
+    var b = 42;
+
+    console.log(a == b); // true
+    console.log(a === b); // false
+
+{% endhighlight %} 
+
+In the first comparison JS notices that the types do not match, so it goes through an ordered series of steps to coerce one or both values to a different type until the types match, where then a simple value equality can be checked. In the second case since coercion is not allowed so value conversion fails and results in false.
+
+
+
 
