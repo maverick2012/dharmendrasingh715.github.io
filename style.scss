@@ -3,6 +3,7 @@
 //
 
 @import "reset";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 @import "variables";
 @import "navigation";
 // Syntax highlighting @import is at the bottom of this file
@@ -17,7 +18,7 @@ html {
 
 body {
 	background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 18px/1.4 $roboto;
   color: $darkGray;
 }
 
